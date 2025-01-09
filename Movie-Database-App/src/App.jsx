@@ -54,6 +54,7 @@ const App = () => {
               />
             }
           />
+          <Router basename="/"></Router>
           <Route path="/movie/:id" element={<MovieDetails />} />
           <Route path="/popular" element={<Popular />} />
           <Route path="/animation" element={<Animation />} />
