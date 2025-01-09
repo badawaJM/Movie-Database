@@ -96,7 +96,42 @@ const HomePage = ({ searchResults, errorMessage }) => {
       textAlign: "center",
       marginTop: "20px",
     },
+    // Responsive styles
+    '@media (max-width: 768px)': {
+      page: {
+        padding: "10px",
+      },
+      section: {
+        padding: "5px",
+      },
+      sectionTitle: {
+        fontSize: "1.2em",
+      },
+      movieGrid: {
+        gridTemplateColumns: "repeat(auto-fit, minmax(120px, 1fr))",
+        gap: "10px",
+      },
+      moviePoster: {
+        borderRadius: "5px",
+      },
+      movieTitle: {
+        fontSize: "0.9em",
+      },
+    },
+    '@media (max-width: 480px)': {
+      sectionTitle: {
+        fontSize: "1em",
+      },
+      movieGrid: {
+        gridTemplateColumns: "repeat(auto-fit, minmax(100px, 1fr))",
+        gap: "8px",
+      },
+      movieTitle: {
+        fontSize: "0.8em",
+      },
+    },
   };
+  
 
   return (
     <div style={styles.page}>
