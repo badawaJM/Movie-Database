@@ -16,7 +16,7 @@ const Header = ({ onSearch }) => {
   const styles = {
     header: {
       backgroundColor: "#f8f8f8",
-      padding: "10px 20px",
+      padding: "10px",
       borderBottom: "2px solid #ddd",
       fontFamily: "Arial, sans-serif",
     },
@@ -24,14 +24,14 @@ const Header = ({ onSearch }) => {
       display: "flex",
       alignItems: "center", 
       justifyContent: "space-between", 
-      marginBottom: "15px",
+      flexWrap: "wrap", // Ensures responsiveness
+      gap: "10px",
     },
     logo: {
-      fontSize: "1.8em",
+      fontSize: "1.5em",
       fontWeight: "bold",
       textDecoration: "none",
       color: "#d32f2f", 
-      marginRight: "20px", 
     },
     searchBar: {
       display: "flex",
@@ -41,7 +41,7 @@ const Header = ({ onSearch }) => {
     },
     searchInput: {
       flex: "1",
-      padding: "10px",
+      padding: "8px",
       fontSize: "1em",
       border: "1px solid #ccc",
       borderRadius: "4px 0 0 4px",
@@ -52,7 +52,7 @@ const Header = ({ onSearch }) => {
       borderColor: "#d32f2f",
     },
     searchButton: {
-      padding: "10px 15px",
+      padding: "8px 12px",
       fontSize: "1em",
       border: "none",
       backgroundColor: "#d32f2f",
@@ -67,7 +67,9 @@ const Header = ({ onSearch }) => {
     },
     navBar: {
       display: "flex",
-      justifyContent: "space-evenly",
+      flexWrap: "wrap", // Ensures responsiveness
+      justifyContent: "center",
+      gap: "10px",
       backgroundColor: "#d32f2f",
       padding: "10px 0",
       borderRadius: "4px",
@@ -75,8 +77,8 @@ const Header = ({ onSearch }) => {
     navLink: {
       textDecoration: "none",
       color: "white",
-      fontSize: "1.2em",
-      padding: "10px 20px",
+      fontSize: "1em",
+      padding: "8px 12px",
       borderRadius: "4px",
       transition: "background-color 0.3s ease, color 0.3s ease",
     },

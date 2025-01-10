@@ -17,8 +17,8 @@ const MovieDetails = () => {
 
   const styles = {
     container: {
-      backgroundColor: "rgba(211, 47, 47, 0.65)", 
-      padding: "40px",
+      backgroundColor: "rgba(211, 47, 47, 0.65)",
+      padding: "20px",
       minHeight: "100vh",
       display: "flex",
       flexDirection: "column",
@@ -27,36 +27,36 @@ const MovieDetails = () => {
     },
     title: {
       textAlign: "center",
-      color: "black", 
-      fontSize: "2.5em",
+      color: "black",
+      fontSize: "2em",
       marginBottom: "20px",
-      fontWeight: "bold", 
+      fontWeight: "bold",
     },
     content: {
       display: "flex",
-      flexDirection: "row",
-      alignItems: "flex-start",
+      flexDirection: "column",
+      alignItems: "center",
       justifyContent: "center",
-      gap: "40px",
-      maxWidth: "1200px",
-      margin: "auto",
+      gap: "20px",
+      maxWidth: "90%",
     },
     poster: {
-      width: "300px",
+      width: "100%",
+      maxWidth: "300px",
       borderRadius: "10px",
       transition: "transform 0.3s ease, box-shadow 0.3s ease",
       cursor: "pointer",
     },
     posterHover: {
-      transform: "rotateY(10deg) rotateX(10deg) scale(1.05)", // Effet 3D
+      transform: "rotateY(10deg) rotateX(10deg) scale(1.05)",
       boxShadow: "0 10px 20px rgba(0, 0, 0, 0.5)",
     },
     description: {
-      color: "black", 
-      fontSize: "1.2em",
+      color: "black",
+      fontSize: "1em",
       lineHeight: "1.6",
-      maxWidth: "600px",
-      fontWeight: "bold", 
+      maxWidth: "90%",
+      textAlign: "justify",
     },
   };
 
@@ -77,11 +77,7 @@ const MovieDetails = () => {
             e.currentTarget.querySelector("img").style.boxShadow = "";
           }}
         >
-          <img
-            src={movie.Poster}
-            alt={movie.Title}
-            style={styles.poster}
-          />
+          <img src={movie.Poster} alt={movie.Title} style={styles.poster} />
         </div>
         <p style={styles.description}>{movie.Plot}</p>
       </div>
