@@ -16,23 +16,23 @@ const Popular = () => {
         setMovies(data.Search || []);
         setLoading(false);
       } catch (error) {
-        console.error("Erreur lors de la récupération des films populaires:", error);
+        console.error("Error fetching popular movies:", error);
       }
     };
     fetchPopularMovies();
   }, []);
 
-  if (loading) return <div>Chargement des films populaires...</div>;
+  if (loading) return <div>Loading popular movies...</div>;
 
   const styles = {
     container: {
-      backgroundColor: "rgba(245, 245, 245, 1)", 
+      backgroundColor: "rgba(245, 245, 245, 1)",
       padding: "20px",
       minHeight: "100vh",
     },
     title: {
       textAlign: "center",
-      color: "rgba(211, 47, 47, 1)", 
+      color: "rgba(211, 47, 47, 1)",
       fontSize: "2.5em",
       marginBottom: "20px",
       fontWeight: "bold",
@@ -43,11 +43,11 @@ const Popular = () => {
       alignItems: "flex-start",
       justifyContent: "flex-start",
       gap: "20px",
-      overflowX: "auto", 
+      overflowX: "auto",
       padding: "10px 0",
     },
     movieItem: {
-      flex: "0 0 auto", 
+      flex: "0 0 auto",
       width: "200px",
       textAlign: "center",
     },
@@ -58,19 +58,19 @@ const Popular = () => {
       cursor: "pointer",
     },
     posterHover: {
-      transform: "scale(1.05)", 
+      transform: "scale(1.05)",
       boxShadow: "0 10px 20px rgba(0, 0, 0, 0.5)",
     },
     titleText: {
       marginTop: "10px",
       fontWeight: "bold",
-      color: "black", 
+      color: "black",
     },
   };
 
   return (
     <div style={styles.container}>
-      <h2 style={styles.title}>Films Populaires</h2>
+      <h2 style={styles.title}>Popular Movies</h2>
       <div style={styles.movieGrid}>
         {movies.map((movie) => (
           <div key={movie.imdbID} style={styles.movieItem}>

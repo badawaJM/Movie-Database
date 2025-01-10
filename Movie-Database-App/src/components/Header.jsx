@@ -22,16 +22,16 @@ const Header = ({ onSearch }) => {
     },
     headerTop: {
       display: "flex",
-      alignItems: "center", 
-      justifyContent: "space-between", 
-      flexWrap: "wrap", // Ensures responsiveness
+      alignItems: "center",
+      justifyContent: "space-between",
+      flexWrap: "wrap",
       gap: "10px",
     },
     logo: {
       fontSize: "1.5em",
       fontWeight: "bold",
       textDecoration: "none",
-      color: "#d32f2f", 
+      color: "#d32f2f",
     },
     searchBar: {
       display: "flex",
@@ -46,10 +46,6 @@ const Header = ({ onSearch }) => {
       border: "1px solid #ccc",
       borderRadius: "4px 0 0 4px",
       outline: "none",
-      transition: "border-color 0.3s ease",
-    },
-    searchInputHover: {
-      borderColor: "#d32f2f",
     },
     searchButton: {
       padding: "8px 12px",
@@ -59,20 +55,20 @@ const Header = ({ onSearch }) => {
       color: "white",
       cursor: "pointer",
       borderRadius: "0 4px 4px 0",
-      transition: "background-color 0.3s ease, color 0.3s ease",
+      transition: "background-color 0.3s ease, transform 0.2s ease",
     },
     searchButtonHover: {
-      backgroundColor: "#ffcccb",
-      color: "#b71c1c",
+      backgroundColor: "#b71c1c", // Darker red color on hover
+      transform: "scale(1.05)", // Slightly enlarge the button on hover
     },
     navBar: {
       display: "flex",
-      flexWrap: "wrap", // Ensures responsiveness
-      justifyContent: "center",
+      justifyContent: "space-around",
+      alignItems: "center",
+      flexWrap: "wrap",
       gap: "10px",
       backgroundColor: "#d32f2f",
       padding: "10px 0",
-      borderRadius: "4px",
     },
     navLink: {
       textDecoration: "none",
@@ -80,11 +76,13 @@ const Header = ({ onSearch }) => {
       fontSize: "1em",
       padding: "8px 12px",
       borderRadius: "4px",
+      textAlign: "center",
+      flex: "1", 
       transition: "background-color 0.3s ease, color 0.3s ease",
     },
     navLinkHover: {
-      backgroundColor: "#ffcccb",
-      color: "#b71c1c",
+      backgroundColor: "#ffcccb", // Lighter background color on hover
+      color: "#b71c1c", // Darker text color on hover
     },
   };
 
@@ -97,37 +95,27 @@ const Header = ({ onSearch }) => {
             MovieDB
           </Link>
         </div>
-        <form
-          style={styles.searchBar}
-          onSubmit={handleSearch}
-        >
+        <form style={styles.searchBar} onSubmit={handleSearch}>
           <input
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Rechercher un film..."
+            placeholder="Search for a movie..."
             style={styles.searchInput}
-            onFocus={(e) => {
-              e.target.style.borderColor = styles.searchInputHover.borderColor;
-            }}
-            onBlur={(e) => {
-              e.target.style.borderColor = "#ccc";
-            }}
           />
           <button
             type="submit"
             style={styles.searchButton}
             onMouseEnter={(e) => {
-              e.target.style.backgroundColor =
-                styles.searchButtonHover.backgroundColor;
-              e.target.style.color = styles.searchButtonHover.color;
+              e.target.style.backgroundColor = styles.searchButtonHover.backgroundColor;
+              e.target.style.transform = styles.searchButtonHover.transform;
             }}
             onMouseLeave={(e) => {
               e.target.style.backgroundColor = styles.searchButton.backgroundColor;
-              e.target.style.color = styles.searchButton.color;
+              e.target.style.transform = "";
             }}
           >
-            Rechercher
+            Search
           </button>
         </form>
       </div>
@@ -145,12 +133,14 @@ const Header = ({ onSearch }) => {
             key={index}
             to={link.path}
             style={styles.navLink}
-            onMouseEnter={(e) =>
-              (e.target.style.backgroundColor = styles.navLinkHover.backgroundColor)
-            }
-            onMouseLeave={(e) =>
-              (e.target.style.backgroundColor = styles.navBar.backgroundColor)
-            }
+            onMouseEnter={(e) => {
+              e.target.style.backgroundColor = styles.navLinkHover.backgroundColor;
+              e.target.style.color = styles.navLinkHover.color;
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.backgroundColor = styles.navBar.backgroundColor;
+              e.target.style.color = "white";
+            }}
           >
             {link.label}
           </Link>

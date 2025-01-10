@@ -16,16 +16,13 @@ const Adult = () => {
         setMovies(data.Search || []);
         setLoading(false);
       } catch (error) {
-        console.error(
-          "Erreur lors de la récupération des films Adultes:",
-          error
-        );
+        console.error("Error fetching adult movies:", error);
       }
     };
     fetchAdultMovies();
   }, []);
 
-  if (loading) return <div>Chargement des films Adultes...</div>;
+  if (loading) return <div>Loading adult movies...</div>;
 
   const styles = {
     container: {
@@ -73,7 +70,7 @@ const Adult = () => {
 
   return (
     <div style={styles.container}>
-      <h2 style={styles.title}>Films Adultes</h2>
+      <h2 style={styles.title}>Adult Movies</h2>
       <div style={styles.movieGrid}>
         {movies.map((movie) => (
           <div key={movie.imdbID} style={styles.movieItem}>

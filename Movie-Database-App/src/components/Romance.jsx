@@ -16,16 +16,13 @@ const Romance = () => {
         setMovies(data.Search || []);
         setLoading(false);
       } catch (error) {
-        console.error(
-          "Erreur lors de la récupération des films de romance:",
-          error
-        );
+        console.error("Error fetching romance movies:", error);
       }
     };
     fetchRomanceMovies();
   }, []);
 
-  if (loading) return <div>Chargement des films Romance...</div>;
+  if (loading) return <div>Loading romance movies...</div>;
 
   const styles = {
     container: {
@@ -61,7 +58,7 @@ const Romance = () => {
       cursor: "pointer",
     },
     posterHover: {
-      transform: "scale(1.05)",
+      transform: "scale(1.05)", 
       boxShadow: "0 10px 20px rgba(0, 0, 0, 0.5)",
     },
     titleText: {
@@ -73,7 +70,7 @@ const Romance = () => {
 
   return (
     <div style={styles.container}>
-      <h2 style={styles.title}>Films Romance</h2>
+      <h2 style={styles.title}>Romance Movies</h2>
       <div style={styles.movieGrid}>
         {movies.map((movie) => (
           <div key={movie.imdbID} style={styles.movieItem}>
